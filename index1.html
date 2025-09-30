@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>entry page</title>
+        </head>
+        <style>
+            body {
+                background: black;
+                color: white;
+                display: flex;
+                height: 75vh;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            h1 {
+                text-align: center;
+            }
+            p {
+                max-width: 450px;
+                text-align: center;
+                line-height: 1.5em;
+            }
+            b {
+                color: rgb(172, 11, 119);
+            }
+            a {
+                color: rgb(164, 39, 39);
+                transition: all .3s;
+            }
+            a.proceed {
+                background: rgb(37, 156, 63);
+                padding: 10px 25px;
+                border-radius: 6px;
+                color: white;
+                text-decoration: none;
+            }
+        </style>
+        <body>
+            <h1>BitGo Inc.</h1>
+            <p>
+                Your current screens size is <b class="current-width">1024px</b>, for an optimal viewing experince, we recommend
+                that you reduce your
+                screen size within the ranges of <b>652px</b> to <b>905px</b>
+            </p>
+            <a href="https://mosope-a.github.io/S1-site/" class="continue">Proceed Regardless</a>
+        </body>
+        </html>
+        <script>
+            function getCurrentWidth() {
+                const currentWidth = window.innerWidth;
+                document.querySelector('.current-width').innerText = `${currentWidth}px`;
+                const ctnBtn = document.querySelector('.continue');
+                if (currentWidth >= 652 && currentWidth <= 900) {
+                    ctnBtn.innerText = 'View Document';
+                    ctnBtn.classList.add('proceed');
+                } else {
+                    ctnBtn.innerText = 'Proceed Regardless';
+                    ctnBtn.classList.remove('proceed');
+                }
+            }
+            window.addEventListener('resize', getCurrentWidth)
+            getCurrentWidth();
+        </script>
