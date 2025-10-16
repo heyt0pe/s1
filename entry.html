@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entry Page | BitGo Inc.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+            color: #f5f5f5;
+            font-family: "Poppins", sans-serif;
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #e8e8e8;
+            letter-spacing: 2px;
+            animation: fadeDown 1s ease;
+        }
+
+        p {
+            max-width: 500px;
+            line-height: 1.6em;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            animation: fadeUp 1.2s ease;
+        }
+
+        b {
+            color: #ac0b77;
+        }
+
+        a.continue {
+            padding: 12px 28px;
+            border-radius: 6px;
+            background: #a42727;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        a.continue:hover {
+            transform: translateY(-3px);
+            background: #e63946;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        a.proceed {
+            background: #259c3f;
+        }
+
+        a.proceed:hover {
+            background: #32b854;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .current-width {
+            color: #e63946;
+        }
+
+        /* Animations */
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BITGO INC.</h1>
+    <p>
+        Your current screen size is <b class="current-width">1024px</b>.
+        For an optimal viewing experience, we recommend that you resize your screen between <b>925px</b> and
+        <b>980px</b>.
+    </p>
+    <a href="/index.htm" target='_blank' class="continue">View S1 Doc</a>
+    <br />
+    <a href="/founders-letter.htm" target='_blank' class="continue continue1">View Founder's
+        Letter</a>
+
+    <footer>
+        &copy; 2025 BITGO INC. | All Rights Reserved
+    </footer>
+
+    <script>
+        function getCurrentWidth() {
+            const currentWidth = window.innerWidth;
+            document.querySelector('.current-width').innerText = `${currentWidth}px`;
+            const ctnBtn = document.querySelector('.continue');
+            const ctnBtn2 = document.querySelector('.continue1');
+
+            if (currentWidth >= 925 && currentWidth <= 980) {
+                document.querySelector('.current-width').style.color = '#259c3f';
+                ctnBtn.classList.add('proceed');
+                ctnBtn2.classList.add('proceed');
+            } else {
+                document.querySelector('.current-width').style.color = '#e63946';
+                ctnBtn.classList.remove('proceed');
+                ctnBtn2.classList.remove('proceed');
+            }
+        }
+        window.addEventListener('resize', getCurrentWidth);
+        getCurrentWidth();
+    </script>
+</body>
+
+</html>
